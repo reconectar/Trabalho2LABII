@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-
 public class ArvoreAvl {
 
   protected No raiz;
@@ -230,7 +229,7 @@ public class ArvoreAvl {
 		}
 
 		if (atual.getEsquerda() == null && atual.getDireita() == null) {
-			return 0;
+			return 1;
 		
 		} else if (atual.getEsquerda() == null) {
 			return 1 + altura(atual.getDireita());

@@ -11,6 +11,31 @@ public class Main {
 			vetorCres[i] = i+1;
 			vetorDecr[i] = vetorDecr.length - (i); 
 			vetorRand[i] = random.nextInt(1000);
+		}		
+		ArvoreAvl arvAvlCres= new ArvoreAvl();
+		CArvBin arvAbpCres= new CArvBin();
+		ArvoreAvl arvAvlDecr= new ArvoreAvl();
+		CArvBin arvAbpDecr= new CArvBin();
+		ArvoreAvl arvAvlRand= new ArvoreAvl();
+		CArvBin arvAbpRand= new CArvBin();
+		
+		Timer timerAbpCres = new Timer();
+		for(int i = 0; i < 10000000; i++) {
+			arvAbpCres.put((vetorCres[i]), null);			
 		}
+		long tempoAbpCres = timerAbpCres.getTotalTimeInMillis();
+		
+		Timer timerAbpDecr = new Timer();
+		for(int i = 0; i < 10000000; i++) {
+			arvAbpCres.put((vetorCres[i]), null);			
+		}
+		long tempoAbpDecr = timerAbpDecr.getTotalTimeInMillis();
+		
+		
+		arvAvlCres(vetorCres[i]);
+		arvAbpDecr(vetorDecr[i]);
+		arvAvlDecr(vetorDecr[i]);
+		arvAbpRand(vetorRand[i]);
+		arvAvlRand(vetorRand[i]);
 	}
 }

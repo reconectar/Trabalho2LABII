@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Main {	
+public class Main {
 
 	public static void main(String[] args) {
 		Random random = new Random();
@@ -29,7 +29,8 @@ public class Main {
 		for(int i = 0; i < 10000000; i++) {
 			arvAbpCres.put((vetorCres[i]), null);			
 		}
-		long tempoAbpDecr = timerAbpDecr.getTotalTimeInMillis();	
+		long tempoAbpDecr = timerAbpDecr.getTotalTimeInMillis();
+		
 		
 		arvAvlCres(vetorCres[i]);
 		arvAbpDecr(vetorDecr[i]);

@@ -1,25 +1,14 @@
+package trabalhoLAB2;
+
 public class CArvBin {
 
     class CNo {
         private int chave;
-        private Object valor;
         private CNo esq, dir;
-
-        public CNo()
-        {
-            valor = esq = dir = null;
-        }
 
         public CNo(int k)
         {
             chave = k;
-            valor = esq = dir = null;
-        }
-
-        public CNo(int k, Object v)
-        {
-            chave = k;
-            valor = v;
             esq = null;
             dir = null;
         }
@@ -27,7 +16,6 @@ public class CArvBin {
         public CNo(int k, Object v, CNo e, CNo d)
         {
             chave = k;
-            valor = v;
             esq = e;
             dir = d;
         }
@@ -48,26 +36,23 @@ public class CArvBin {
         else
             if (k > no.chave)
                 return get(no.dir, k);
-            else
-                return no.valor;
+        return null;
     }
 
-    public void put(int k, Object v)
+    public void put(int k)
     {
-        raiz = put(raiz, k, v);
+        raiz = put(raiz, k);
     }
 
-    private CNo put(CNo no, int k, Object v)
+    private CNo put(CNo no, int k)
     {
         if (no == null)
-            return new CNo(k, v);
+            return new CNo(k);
         if (k < no.chave)
-            no.esq = put(no.esq, k, v);
+            no.esq = put(no.esq, k);
         else
             if (k > no.chave)
-                no.dir = put(no.dir, k, v);
-            else
-                no.valor = v;
+                no.dir = put(no.dir, k);
             return no;
     }
 
@@ -75,7 +60,7 @@ public class CArvBin {
     {
         if (no != null) {
             emOrdem(no.esq);
-            System.out.println(no.chave+" "+no.valor);
+            System.out.println(no.chave);
             emOrdem(no.dir);
         }
     }
@@ -83,7 +68,7 @@ public class CArvBin {
     private void preOrdem(CNo no)
     {
         if (no != null) {
-            System.out.println(no.chave+" "+no.valor);
+            System.out.println(no.chave);
             preOrdem(no.esq);
             preOrdem(no.dir);
         }
@@ -94,7 +79,7 @@ public class CArvBin {
         if (no != null) {
             posOrdem(no.esq);
             posOrdem(no.dir);
-            System.out.println(no.chave+" "+no.valor);
+            System.out.println(no.chave);
         }
     }
 
@@ -109,7 +94,7 @@ public class CArvBin {
                 if (op == 3)
                     posOrdem(raiz);
                 else
-                    System.out.println("OpÁ„o de impress„o inv·lida.");
+                    System.out.println("Op√ß√£o de impress√£o inv√°lida.");
     }
 
     private int somaNosInt(CNo no)
@@ -188,7 +173,7 @@ public class CArvBin {
             imprimeNosFolhaEmOrdem(no.esq);
             if (no.esq == null && no.dir == null)
             {
-                System.out.println(no.valor);
+                System.out.println(no.chave);
             }
             imprimeNosFolhaEmOrdem(no.dir);
         }
@@ -207,7 +192,7 @@ public class CArvBin {
         {
             imprimeNosInternosEmOrdem(no.esq);
             if (no.esq != null || no.dir != null)
-                System.out.println(no.valor);
+                System.out.println(no.chave);
             imprimeNosInternosEmOrdem(no.dir);
         }
     }
@@ -231,25 +216,25 @@ public class CArvBin {
 
     private void imprimeInformacoesNos(CNo no) {
         if (no != null) {
-            System.out.println("NÛ " + no.valor);
+            System.out.println("N√≥ " + no.chave);
             int filhos = 0;
             Object filhoEsq, filhoDir;
             if (no.esq != null) {
                 filhos++;
-                filhoEsq = no.esq.valor;
+                filhoEsq = no.esq.chave;
             } else
                 filhoEsq = null;
 
             if (no.dir != null) {
                 filhos++;
-                filhoDir = no.dir.valor;
+                filhoDir = no.dir.chave;
             } else
                 filhoDir = null;
 
             System.out.println("  Qtde. Filhos: " + filhos);
             System.out.println("  Filho esquerda: " + filhoEsq);
             System.out.println("  Filho direita: " + filhoDir);
-            System.out.println("  NÛ interno ou folha? " + (filhoEsq == null && filhoDir == null ? "Folha" : "Interno"));
+            System.out.println("  N√≥ interno ou folha? " + (filhoEsq == null && filhoDir == null ? "Folha" : "Interno"));
             System.out.println();
             System.out.println();
 
@@ -271,7 +256,7 @@ public class CArvBin {
         if (no.dir != null)
             return maiorNo(no.dir);
         else
-            return no.valor;
+            return no.chave;
     }
 
     private Object menorNo(CNo no)
@@ -279,7 +264,7 @@ public class CArvBin {
         if (no.esq != null)
             return menorNo(no.esq);
         else
-            return no.valor;
+            return no.chave;
     }
 
     public Object menorNo()

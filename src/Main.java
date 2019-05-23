@@ -1,41 +1,70 @@
+package trabalhoLAB2;
+
 import java.util.Random;
 
 public class Main {
 
 	public static void main(String[] args) {
 		Random random = new Random();
-		int []vetorCres = new int[10000000];
-		int []vetorDecr = new int[10000000];
-		int []vetorRand = new int[10000000];
-		for(int i = 0; i < 10000000; i++) {
+		int []vetorCres = new int[25000];
+		int []vetorDecr = new int[25000];
+		int []vetorRand = new int[25000];
+		for(int i = 0; i < 25000; i++) {
 			vetorCres[i] = i+1;
 			vetorDecr[i] = vetorDecr.length - (i); 
-			vetorRand[i] = random.nextInt(1000);
+			vetorRand[i] = random.nextInt(25000);
 		}		
-		ArvoreAvl arvAvlCres= new ArvoreAvl();
 		CArvBin arvAbpCres= new CArvBin();
-		ArvoreAvl arvAvlDecr= new ArvoreAvl();
 		CArvBin arvAbpDecr= new CArvBin();
-		ArvoreAvl arvAvlRand= new ArvoreAvl();
 		CArvBin arvAbpRand= new CArvBin();
+		ArvoreAvl arvAvlCres= new ArvoreAvl();
+		ArvoreAvl arvAvlDecr= new ArvoreAvl();
+		ArvoreAvl arvAvlRand= new ArvoreAvl();
+		
 		
 		Timer timerAbpCres = new Timer();
-		for(int i = 0; i < 10000000; i++) {
-			arvAbpCres.put((vetorCres[i]), null);			
+		for(int i = 0; i < 25000; i++) {
+			arvAbpCres.put((vetorCres[i]));			
 		}
 		long tempoAbpCres = timerAbpCres.getTotalTimeInMillis();
 		
 		Timer timerAbpDecr = new Timer();
-		for(int i = 0; i < 10000000; i++) {
-			arvAbpCres.put((vetorCres[i]), null);			
+		for(int i = 0; i < 25000; i++) {
+			arvAbpDecr.put((vetorDecr[i]));			
 		}
 		long tempoAbpDecr = timerAbpDecr.getTotalTimeInMillis();
 		
+		Timer timerAbpRand = new Timer();
+		for(int i = 0; i < 25000; i++) {
+			arvAbpRand.put((vetorRand[i]));			
+		}
+		long tempoAbpRand = timerAbpRand.getTotalTimeInMillis();
 		
-		arvAvlCres(vetorCres[i]);
-		arvAbpDecr(vetorDecr[i]);
-		arvAvlDecr(vetorDecr[i]);
-		arvAbpRand(vetorRand[i]);
-		arvAvlRand(vetorRand[i]);
+		Timer timerAvlCres = new Timer();
+		for(int i = 0; i < 25000; i++) {
+			arvAvlCres.inserir((vetorCres[i]));			
+		}
+		long tempoAvlCres = timerAvlCres.getTotalTimeInMillis();
+		
+		Timer timerAvlDecr = new Timer();
+		for(int i = 0; i < 25000; i++) {
+			arvAvlDecr.inserir((vetorDecr[i]));			
+		}
+		long tempoAvlDecr = timerAvlDecr.getTotalTimeInMillis();
+		
+		Timer timerAvlRand = new Timer();
+		for(int i = 0; i < 25000; i++) {
+			arvAvlRand.inserir((vetorRand[i]));			
+		}
+		long tempoAvlRand = timerAvlRand.getTotalTimeInMillis();
+		
+		System.out.println("Tempo ABP:");
+		System.out.println("Crescente: " + tempoAbpCres);
+		System.out.println("Decrescente: " + tempoAbpDecr);
+		System.out.println("Aleatório: " + tempoAbpRand);
+		System.out.println("Tempo AVL:");
+		System.out.println("Crescente: " + tempoAvlCres);
+		System.out.println("Decrescente: " + tempoAvlDecr);
+		System.out.println("Aleatório: " + tempoAvlRand);
 	}
 }

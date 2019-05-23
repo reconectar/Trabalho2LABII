@@ -1,4 +1,3 @@
-package trabalhoLAB2;
 
 public class CArvBin {
 

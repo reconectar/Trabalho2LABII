@@ -1,3 +1,4 @@
+package Parte1;
 public class No {
   
 	private No esquerda;

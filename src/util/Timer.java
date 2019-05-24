@@ -1,3 +1,4 @@
+package util;
 
 public class Timer {
 
@@ -28,13 +29,13 @@ public class Timer {
 	public String getTotalTime() {
 		StringBuilder totalTime = new StringBuilder();
 		if(getTotalTimeInHours()!=0) {
-			totalTime.append(getTotalTimeInHours() + " horas, ");
+			totalTime.append(getTotalTimeInHours() + " h, ");
 		}if(getTotalTimeInMinutes()!=0) {
-			totalTime.append((getTotalTimeInMinutes() - 60*getTotalTimeInHours()) + " minutos, ");
+			totalTime.append((getTotalTimeInMinutes() - 60*getTotalTimeInHours()) + " min, ");
 		}if(getTotalTimeInSeconds()!=0) {
-			totalTime.append((getTotalTimeInSeconds() - 60*getTotalTimeInMinutes()) +  " segundos, ");
+			totalTime.append((getTotalTimeInSeconds() - 60*getTotalTimeInMinutes()) +  " seg, ");
 		}if(getTotalTimeInMillis()!=0) {
-			totalTime.append((getTotalTimeInMillis() - 1000*getTotalTimeInSeconds()) + " millisegundos.");
+			totalTime.append((getTotalTimeInMillis() - 1000*getTotalTimeInSeconds()) + " milliseg.");
 		}
 		return totalTime.toString();
 	}

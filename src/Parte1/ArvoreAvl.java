@@ -1,3 +1,4 @@
+package Parte1;
 import java.util.ArrayList;
 public class ArvoreAvl {
 
@@ -260,4 +261,21 @@ public class ArvoreAvl {
 		lista.add(no);
 		inorder(no.getDireita(), lista);
 	}
+	
+	public boolean achou(int k)
+    {
+        return achouRec(raiz, k);
+    }
+
+    private boolean achouRec(No no, int k)
+    {
+        if (no != null && no.getChave() != k)
+        {
+            if (k < no.getChave())
+                return achouRec(no.getEsquerda(), k);
+            else
+                return achouRec(no.getDireita(), k);
+        }
+        return no != null ? true : false;
+    }
 }

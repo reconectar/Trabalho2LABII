@@ -12,7 +12,7 @@ public class CArvBin {
             dir = null;
         }
 
-        public CNo(int k, Object v, CNo e, CNo d)
+        public CNo(int k, CNo e, CNo d)
         {
             chave = k;
             esq = e;

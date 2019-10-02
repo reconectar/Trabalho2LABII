@@ -1,3 +1,7 @@
+/* @author "Arthur Gramiscelli Branco"
+   Created on 24/05/2019
+*/
+
 package util;
 
 public class Timer {
